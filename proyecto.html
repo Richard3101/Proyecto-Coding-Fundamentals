@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz Espiral</title>
+</head>
+<body>
+    <script>
+            function spiralMatrix(cantidadColumnas, cantidadFilas) {
+
+let rangoColumnas = cantidadColumnas-1
+let rangoFilas = cantidadFilas-1
+let final = cantidadColumnas * cantidadFilas;
+let inicio = 0;
+let contador = 1;
+let resta = 0;
+
+let arr = [];
+    for (let i = 0; i < cantidadColumnas; i++) {
+        let items = []
+        for (let j = 0; j < cantidadFilas; j++) {
+        items.push(0)
+        }
+        arr.push(items)
+    }
+
+
+
+while(contador <= final) {
+    for(let i=inicio; i<=rangoColumnas; i++){
+        arr[inicio][i] = contador;
+        contador++
+    }
+    for(let i=inicio+1; i<=rangoFilas; i++){
+        arr[i][rangoFilas] = contador;
+        contador++
+    }
+    for(let i=rangoColumnas-1; i>=inicio; i--){
+        arr[rangoColumnas][i] = contador;
+        contador++
+    }
+    for(let i=rangoFilas-1; i>=inicio+1; i--){
+        arr[i][inicio] = contador;
+        contador++
+    }
+    inicio++
+    rangoColumnas--
+    rangoFilas--
+    
+
+}
+
+console.log(arr) 
+}
+
+spiralMatrix(5,5)
+    </script>
+</body>
+</html>
